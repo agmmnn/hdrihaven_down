@@ -10,17 +10,16 @@ down_sizes = ["1k", "2k", "4k"]  # you can give multiple values 1,2,4,8,16.
 down_thumbnail = False  # download thumbnail image.
 down_preview = True  # download preview image.
 down_spheres = True  # download spheres image.
-# down_folder = "C:\\Users\\agm\\Documents\\GitHub\\hdrihaven_down\\dw"
 owerwrite = False  # overwrite if the file exists, otherwise skip.
+# down_folder = "C:\\Users\\agm\\Documents\\GitHub\\hdrihaven_down\\dw"
 
 # urlopener
-ua = UserAgent()
-opener = URLopener()
-opener.addheader("User-Agent", ua.chrome)
+urlopener = URLopener()
+urlopener.addheader("User-Agent", UserAgent().chrome)
 
 # soup
 url = "https://hdrihaven.com/hdris/?c=" + category
-r = requests.get(url, headers={"User-Agent": ua.chrome})
+r = requests.get(url, headers={"User-Agent": UserAgent().chrome})
 soup = BeautifulSoup(r.content, "lxml")
 items = soup.find("div", id="item-grid").find_all("a")
 
@@ -38,10 +37,10 @@ def downloader(url, ext, filename):
         if file + ext in files:
             print("Already exist: " + file + ext)
         elif file + ext not in files and owerwrite == False:
-            opener.retrieve(url + i + ext, file + ext)
+            urlopener.retrieve(url + i + ext, file + ext)
             print("Download complete: " + file + ext)
         elif owerwrite == True:
-            opener.retrieve(url + i + ext, file + ext)
+            urlopener.retrieve(url + i + ext, file + ext)
             print("Already exist (overwrite): " + file + ext)
 
 
@@ -56,11 +55,11 @@ for i in items:
     )
     spheres_file = "https://hdrihaven.com/files/hdri_images/spheres/" + item + ".jpg"
     if down_thumbnail == True and item + "_thumbnail.jpg" not in files:
-        opener.retrieve(thumb_file, item + "_thumbnail.jpg")
+        urlopener.retrieve(thumb_file, item + "_thumbnail.jpg")
     if down_preview == True and item + "_preview.jpg" not in files:
-        opener.retrieve(preview_file, item + "_preview.jpg")
+        urlopener.retrieve(preview_file, item + "_preview.jpg")
     if down_spheres == True and item + "_spheres.jpg" not in files:
-        opener.retrieve(spheres_file, item + "_spheres.jpg")
+        urlopener.retrieve(spheres_file, item + "_spheres.jpg")
 
     # hdr file
     try:
