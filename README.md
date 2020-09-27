@@ -1,6 +1,6 @@
 ## hdrihaven_down
 
-Download HDRI files with preview images from [hdrihaven.com](https://hdrihaven.com/hdris/?c=all).
+Download HDRIs from [hdrihaven.com](https://hdrihaven.com/hdris/?c=all) with multiple resolutions and preview images.
 
 ### Features:
 
