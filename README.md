@@ -5,7 +5,7 @@ Download HDRI files with preview images from [hdrihaven.com](https://hdrihaven.c
 ### Features:
 
 -   Download by category.
--   Give multiple HDRI resolution.
+-   Give multiple HDRI resolutions.
 -   Download preview, spheres images.
 -   Skip already existing files. (Newly added HDRIs can be synchronized easily with this way)
 
