@@ -13,3 +13,5 @@ Download HDRIs from [hdrihaven.com](https://hdrihaven.com/hdris/?c=all) with mul
 
 -   `pip install -r requirements.txt`
 -   `python hdrihaven_down.py`
+
+_Note: bs4 was used in this script. hdrihaven.com offers the [json api](https://hdrihaven.com/json?v=1.1), this would be a more accurate method. [#1](/issues/1)_
